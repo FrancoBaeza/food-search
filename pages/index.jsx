@@ -8,19 +8,7 @@ export default function Home() {
     {
       name: "Comida con nombre muy largo asd asd asd asd ",
       description:
-        "Esta es la descripcion de la comida que es re larga y no se que mas poner",
-      image: "https://picsum.photos/270/150",
-      rating: 4.5,
-    },
-    {
-      name: "Food Name",
-      description: "Food Description",
-      image: "https://picsum.photos/270/150",
-      rating: 4.5,
-    },
-    {
-      name: "Food Name",
-      description: "Food Description",
+        "Esta es la descripcion de la comida que es re larga y no se que mas poner  sd sd sd ffr  re er er er ger ger ger egr erger ger ger egr erg  egerg  dfsd fsd s ",
       image: "https://picsum.photos/270/150",
       rating: 4.5,
     },
@@ -64,9 +52,9 @@ export default function Home() {
       </div>
 
       {/* BEST RATED RECIPES */}
-      <section className="flex flex-col gap-4 items-center py-8 bg-slate-600">
+      <section className="flex flex-col gap-4 items-center py-8 bg-slate-100">
         <div className="">
-          <h2 className="sm:text-3xl text-xl font-bold text-slate-200">
+          <h2 className="sm:text-3xl text-xl font-bold text-slate-600">
             BEST RATED RECIPES
           </h2>
           <hr className="h-0 border-t-[3px] border-primary_green w-1/3 " />

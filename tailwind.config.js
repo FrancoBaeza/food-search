@@ -18,5 +18,5 @@ module.exports = {
       selected_green: "#6fa321",
     },
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/line-clamp")],
 };

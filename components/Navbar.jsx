@@ -80,7 +80,7 @@ export default function Navbar() {
         </Link>
         <Link
           className="px-3 h-full items-center flex hover:bg-primary_green duration-500"
-          href="/"
+          href="/login"
         >
           <p className="font-bold text-[#04292a]">Login</p>
         </Link>
