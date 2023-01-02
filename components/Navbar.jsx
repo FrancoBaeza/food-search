@@ -1,6 +1,16 @@
 import Link from "next/link";
+import Image from "next/image";
+import { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faGear,
+  faStar,
+  faRightFromBracket,
+} from "@fortawesome/free-solid-svg-icons";
 
 export default function Navbar() {
+  // handles the state of the user's dropdown menu
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <nav className="flex justify-between items-center h-10 bg-slate-100">
       <p className="text-xl font-bold pl-4">
@@ -85,11 +95,50 @@ export default function Navbar() {
           <p className="font-bold text-[#04292a]">Login</p>
         </Link>
         <Link
-          className=" bg-primary_green px-3 h-full items-center flex hover:bg-primary_green duration-500"
+          className="bg-primary_green px-3 h-full items-center flex hover:bg-primary_green duration-500"
           href="/"
         >
           <p className="font-bold text-[#04292a]">Home</p>
         </Link>
+        <div className="px-3 h-full items-center flex">
+          <Image
+            className="cursor-pointer"
+            onMouseOver={() => setIsOpen((old) => !old)}
+            alt="Profile image"
+            src="/images/profile.png"
+            width={30}
+            height={30}
+          />
+          <div
+            // onMouseOut={() => setIsOpen((old) => !old)}
+            className={`flex flex-col rounded-bl w-[150px] bg-slate-100 absolute top-[40px] right-0 ${
+              isOpen ? "block" : "hidden"
+            }`}
+          >
+            <div className="w-full font-semibold text-slate-500 pt-3 px-2">
+              Franco Baeza{" "}
+              <hr className="border-slate-400 border-t-2" />
+            </div>
+            <Link
+              href="/"
+              className="w-full text-xs font-medium hover:bg-slate-400 cursor-pointer py-2 mt-2 px-2"
+            >
+              <FontAwesomeIcon icon={faGear} /> Account Settings
+            </Link>
+            <Link
+              href="/"
+              className="w-full text-xs font-medium hover:bg-slate-400 cursor-pointer py-2 px-2"
+            >
+              <FontAwesomeIcon icon={faStar} /> Favourites
+            </Link>
+            <Link
+              href="/"
+              className="w-full text-xs font-medium hover:bg-slate-400 cursor-pointer py-2 px-2 rounded-bl"
+            >
+              <FontAwesomeIcon icon={faRightFromBracket} /> Log Out
+            </Link>
+          </div>
+        </div>
       </div>
     </nav>
   );
