@@ -102,8 +102,8 @@ export default function Navbar() {
         </Link>
         <div className="px-3 h-full items-center flex">
           <Image
-            className="cursor-pointer"
-            onMouseOver={() => setIsOpen((old) => !old)}
+            className="cursor-pointer hover:bg-primary_green rounded-full duration-300"
+            onClick={() => setIsOpen((old) => !old)}
             alt="Profile image"
             src="/images/profile.png"
             width={30}
