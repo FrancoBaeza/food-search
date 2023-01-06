@@ -1,5 +1,5 @@
 import dbConnect from '../../lib/dbConnect'
-import User from '../../backend/models/User.mjs'
+import { registerUser } from '../../backend/controllers/Auth.mjs'
 
 export default async function handler (req, res) {
   const { method } = req
@@ -9,8 +9,6 @@ export default async function handler (req, res) {
   switch (method) {
     case 'GET':
       try {
-        
-        const users = await User.find({})
         res.status(200).json({ success: true, data: users })
       } catch (error) {
         console.log('Error: ', error)
@@ -18,11 +16,13 @@ export default async function handler (req, res) {
       }
       break
     case 'POST':
+      console.log('Entre al POST');
+      return await registerUser(req, res)
+      console.log('Function response: ', response);
       try {
-        const user = await User.create(req.body)
-        res.status(201).json({ success: true, data: user })
+        
       } catch (error) {
-        res.status(400).json({ success: false })
+        res.status(400).json({ success: false, error })
       }
       break
     default:

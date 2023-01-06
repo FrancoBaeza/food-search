@@ -1,8 +1,10 @@
 import Link from 'next/link';
+import { useState } from 'react';
 import styles from '../styles/register.module.scss'
 
 export default function Register() {
-  return (
+    const [name, setName] = useState('');
+    return (
         <div className=" h-screen bg-selected_green flex flex-col gap-3 items-center justify-center ">
             
             
