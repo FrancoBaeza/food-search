@@ -17,10 +17,13 @@
     "eslint-config-next": "13.0.7",
     "flowbite": "^1.5.5",
     "flowbite-react": "^0.3.7",
+    "mongodb": "^4.13.0",
+    "mongoose": "^6.8.2",
     "next": "13.0.7",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-star-ratings": "^2.3.0"
+    "react-star-ratings": "^2.3.0",
+    "sass": "^1.57.1"
   },
   "devDependencies": {
     "@tailwindcss/line-clamp": "^0.4.2",

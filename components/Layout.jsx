@@ -13,9 +13,9 @@ export default function Layout({ children }) {
 
   return (
     <main className={montserrat.className}>
-      {router.pathname != "/login" && <Navbar />}
+      {router.pathname != "/login" && router.pathname != "/register" && <Navbar />}
       <main>{children}</main>
-      {router.pathname != "/login" && <Footer />}
+      {router.pathname != "/login" && router.pathname != "/register" && <Footer />}
     </main>
   );
 }

@@ -12,6 +12,7 @@ module.exports = {
     extend: {
       backgroundImage: {
         "food-banner": "url('/foodBanner2.jpg')",
+        "login-food-banner": "url('/foodBannerVertical.jpg')",
       },
     },
     colors: {

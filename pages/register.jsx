@@ -1,14 +1,14 @@
 import Link from 'next/link';
-import styles from '../styles/login.module.scss'
+import styles from '../styles/register.module.scss'
 
-export default function Login() {
+export default function Register() {
   return (
         <div className=" h-screen bg-selected_green flex flex-col gap-3 items-center justify-center ">
             
             
-            <div className="bg-slate-100 w-[700px] h-[500px] flex flex-row items-center rounded-md shadow-lg">
-                {/* logo */}
+            <div className="bg-slate-100 w-[700px] h-[600px] flex flex-row items-center rounded-md shadow-lg">
                 <div className=" rounded-l-md bg-login-food-banner bg-cover w-2/5 h-full">
+                    {/* logo */}
                     <p className="pl-4 pt-4">
                         <svg
                         width="200.1111145019531"
@@ -67,8 +67,18 @@ export default function Login() {
                 </div>
                 <div className="w-3/5 h-full flex flex-col px-8">
 
-                    <h1 className="mt-10 font-semibold text-xl">Welcome back to <strong className='text-primary_green'>Cooker</strong></h1>
-                    <p className=" py-5 text-sm">Lorem ipsum dolor st amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+                    <h1 className="mt-10 font-semibold text-xl">Welcome to <strong className='text-primary_green'>Cooker</strong></h1>
+                    <p className=" pt-5 text-sm">{` We'll make your choices way easier. `}</p>
+                    <p className=" pb-5 text-sm">{` Tell us about your self. `}</p>
+
+                    {/* email */}
+                    <div className={styles.floating_label}>
+                        <input className={styles.login} placeholder="Name" type="text" name="name" id="name" autocomplete="off" />
+                        <label className={styles.login} for="name">Your name:</label>
+                        <div className={styles.icon}>
+                            <svg fill="#000000" width="800px" height="800px" viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg"><path d="M 28.0117 27.3672 C 33.0508 27.3672 37.3867 22.8672 37.3867 17.0078 C 37.3867 11.2187 33.0274 6.9297 28.0117 6.9297 C 22.9961 6.9297 18.6367 11.3125 18.6367 17.0547 C 18.6367 22.8672 22.9961 27.3672 28.0117 27.3672 Z M 13.2930 49.0703 L 42.7305 49.0703 C 46.4101 49.0703 47.7226 48.0156 47.7226 45.9531 C 47.7226 39.9062 40.1523 31.5625 28.0117 31.5625 C 15.8477 31.5625 8.2774 39.9062 8.2774 45.9531 C 8.2774 48.0156 9.5898 49.0703 13.2930 49.0703 Z"/></svg>
+                        </div>
+                    </div>
 
                     {/* email */}
                     <div className={styles.floating_label}>
@@ -90,11 +100,20 @@ export default function Login() {
                         </div>
                     </div>
 
+                    {/* password confirmation */}
+                    <div className={styles.floating_label}>
+                        <input className={styles.login} placeholder="Password confirmation" type="password" name="password-confirm" id="password-confirm" autocomplete="off" />
+                        <label className={styles.login} for="password-confirm">Password confirmation:</label>
+                        <div className={styles.icon}>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="#000000" width="800px" height="800px" viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6-5.1c1.71 0 3.1 1.39 3.1 3.1v2H9V6h-.1c0-1.71 1.39-3.1 3.1-3.1zM18 20H6V10h12v10zm-6-3c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z"/></svg>
+                        </div>
+                    </div>
+
                     {/* login button */}
                     <button className=' self-end mt-4 rounded-full bg-primary_green hover:bg-selected_green duration-300 hover:translate-y-[-4px] px-7 py-3 text-slate-100 text-sm '>Log in</button>
 
-                    {/* register redirect */}
-                    <div className='flex items-end justify-end mb-5 flex-grow text-xs text-slate-500'> <Link href="/register" className='cursor-pointer hover:underline'> {`Aready got an account? Log in! `} </Link> </div>
+                    {/* login redirect */}
+                    <div  className='flex items-end justify-end mb-5 flex-grow text-xs text-slate-500'> <Link href="/login" className='cursor-pointer hover:underline'> {`Aready got an account? Log in! `} </Link> </div>
                 </div>
             </div>
         </div>
