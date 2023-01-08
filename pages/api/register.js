@@ -16,11 +16,8 @@ export default async function handler (req, res) {
       }
       break
     case 'POST':
-      console.log('Entre al POST');
-      return await registerUser(req, res)
-      console.log('Function response: ', response);
       try {
-        
+        return await registerUser(req, res)
       } catch (error) {
         res.status(400).json({ success: false, error })
       }
