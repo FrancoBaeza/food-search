@@ -1,13 +1,11 @@
-import { withIronSessionApiRoute } from "iron-session/next";
-
 import dbConnect from '../../lib/dbConnect'
 import { loginUser } from '../../backend/controllers/Auth.mjs'
-import { ironOptions } from '../../lib/config'
+import { withSessionRoute } from "../../lib/withSession";
 
 
 const loginHandler = async (req, res) => {
 
-    console.log('Login hanfder called')
+    console.log('Login handler called')
     const { method } = req
 
     await dbConnect()
@@ -21,10 +19,9 @@ const loginHandler = async (req, res) => {
         }
         break
         case 'POST':
-            return await loginUser(req, res)
 
             try {
-                console.log('A')
+                return await loginUser(req, res)
             } catch (error) {
 
                 res.status(400).json({ success: false, error })
@@ -37,4 +34,4 @@ const loginHandler = async (req, res) => {
     }
 }
 
-export default withIronSessionApiRoute(loginHandler, ironOptions)
+export default withSessionRoute(loginHandler)

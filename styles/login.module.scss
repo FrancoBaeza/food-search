@@ -1,4 +1,5 @@
 $primary: #82c126; 	
+$error: rgb(240 82 82);
 
 .floating_label {
     position:  relative; 
@@ -56,6 +57,12 @@ $primary: #82c126;
     }
 
 }
+
+.shakey {
+    animation-name: shake-shake;
+    animation-duration: .3s;
+}
+
 
 $displacement:  3px; 
 @keyframes shake-shake {

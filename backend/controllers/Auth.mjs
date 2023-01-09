@@ -1,6 +1,14 @@
 import _ from 'lodash'
+import jsonwebtoken from 'jsonwebtoken';
+
 
 import User from '../models/User.mjs'
+
+const signToken = (id) => {
+    return jsonwebtoken.sign({ id: id }, process.env.JWT_SECRET, {
+        expiresIn: process.env.JWT_EXPIRES_IN,
+    });
+};
 
 export const registerUser = async (req, res) => {
     const { name, email, password, passwordConfirm } = req.body;
@@ -29,7 +37,7 @@ export const loginUser = async (req, res) => {
 
     // 1) Check if email and password exist
     if (!email || !password) {
-        return res.status(400).json({status: 'Fail', message: 'Please provide email and password!'});
+        return res.status(400).json({status: 'Fail', message: 'Please provide email and password'});
     }
 
     // 2) Check if user exists && password is correct
@@ -38,16 +46,15 @@ export const loginUser = async (req, res) => {
     ({ email
     }).select('+password');
 
-    console.log('User found: ', user)
-
     if (!user || !(await user.correctPassword(password, user.password))) {
         return res.status(401).json({status: 'Fail', message: 'Incorrect email or password'});
     }
 
-    // 3) If everything ok, send token to client
-    // const token = signToken(user._id);
-    const token = 'PAPAFRITA';
-
+    // 3) Sign the token
+    const token = signToken(user._id);
+    user.password = undefined;
+    
+    // 4) Send response
     req.session.user = {
         id: user._id,
         token

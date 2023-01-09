@@ -17,19 +17,19 @@ const UserSchema = new mongoose.Schema({
   },
   password: {
     type: String,
-    reqired: [true, 'Please provide a password0'],
-    minLength: 6,
+    reqired: [true, 'Please provide a password'],
+    minLength: [6, 'Password must be longer than 6 characters'],
     select: false,
   },
   passwordConfirm: {
     type: String,
-    required: [true, 'El campo de verificar contraseña es obligatorio'],
+    required: [true, 'Please confirm your password'],
     validate: {
       validator: function (val) {
         // this validates the password and password confirmation
         return val === this.password;
       },
-      message: 'Las contraseñas no coinciden',
+      message: 'Passwords do not match',
     },
   },
   active: {
