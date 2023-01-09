@@ -76,6 +76,14 @@ export const getServerSideProps = withSessionSsr(
     async function getServerSideProps({ req }) {
         const user = req.session.user;
     
+        if(!user) {
+            return {
+                redirect: {
+                    destination: '/login',
+                    permanent: false,
+                }
+            }
+        }
         return {
             props: {
                 user,
