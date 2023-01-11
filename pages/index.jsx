@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
@@ -49,7 +51,7 @@ export default function Home({user}) {
                 </div>
 
                 <div className="sm:p-4 p-2 sm:text-base text-sm bg-primary_green text-slate-200 font-semibold cursor-pointer hover:bg-selected_green shadow-lg">
-                    GET STARTED NOW <FontAwesomeIcon icon={faArrowRight} />
+                    <Link href="/recipies"> GET STARTED NOW <FontAwesomeIcon icon={faArrowRight} /> </Link>
                 </div>
             </div>
 

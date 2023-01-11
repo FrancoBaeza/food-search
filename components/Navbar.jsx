@@ -76,12 +76,12 @@ export default function Navbar() {
         </svg>
       </p>
       <div className="flex text-sm font-light h-full items-center">
-        <Link
+        {/* <Link
           className="px-3 h-full items-center flex hover:bg-primary_green duration-500"
           href="/"
         >
           <p className="font-bold text-[#04292a]">About</p>
-        </Link>
+        </Link> */}
         <Link
           className="px-3 h-full items-center flex hover:bg-primary_green duration-500"
           href="/"

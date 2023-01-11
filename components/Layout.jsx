@@ -30,9 +30,9 @@ export default function Layout({ children }) {
 					visible={true}
 				/>
 			</div>)}
-			{router.pathname != "/login" && router.pathname != "/register" && <Navbar />}
+			{router.pathname != "/unauthorized" && router.pathname != "/login" && router.pathname != "/register" && <Navbar />}
 			<main>{children}</main>
-			{router.pathname != "/login" && router.pathname != "/register" && <Footer />}
+			{router.pathname != "/unauthorized" && router.pathname != "/login" && router.pathname != "/register" && <Footer />}
 		</main>
  	);
 }

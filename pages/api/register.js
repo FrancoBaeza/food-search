@@ -1,5 +1,5 @@
 import dbConnect from '../../lib/dbConnect'
-import { registerUser } from '../../backend/controllers/Auth.mjs'
+import { registerUser } from '../../backend/controllers/Auth.js'
 
 export default async function handler (req, res) {
   const { method } = req

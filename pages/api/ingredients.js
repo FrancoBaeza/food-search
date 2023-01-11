@@ -1,11 +1,10 @@
 import dbConnect from '../../lib/dbConnect'
-import { loginUser } from '../../backend/controllers/Auth.js'
+import { createIngredient } from '../../backend/controllers/Ingredient';
 import { withSessionRoute } from "../../lib/withSession";
 
 
-const loginHandler = async (req, res) => {
+const ingredientHandler = async (req, res) => {
 
-    console.log('Login handler called')
     const { method } = req
 
     await dbConnect()
@@ -21,9 +20,8 @@ const loginHandler = async (req, res) => {
         case 'POST':
 
             try {
-                return await loginUser(req, res)
+                return await createIngredient(req, res)
             } catch (error) {
-
                 res.status(400).json({ success: false, error })
             }
             break;
@@ -34,4 +32,4 @@ const loginHandler = async (req, res) => {
     }
 }
 
-export default withSessionRoute(loginHandler)
+export default withSessionRoute(ingredientHandler)

@@ -95,3 +95,8 @@ label.login {
     opacity:  .8;
     font-weight:  400; 
 }
+
+.shakey {
+    animation-name: shake-shake;
+    animation-duration: .3s;
+}

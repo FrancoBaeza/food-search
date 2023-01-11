@@ -2,7 +2,7 @@ import _ from 'lodash'
 import jsonwebtoken from 'jsonwebtoken';
 
 
-import User from '../models/User.mjs'
+import User from '../models/User.js'
 
 const signToken = (id) => {
     return jsonwebtoken.sign({ id: id }, process.env.JWT_SECRET, {
@@ -56,7 +56,7 @@ export const loginUser = async (req, res) => {
     
     // 4) Send response
     req.session.user = {
-        id: user._id,
+        user,
         token
     }
     await req.session.save();
